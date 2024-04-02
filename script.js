@@ -1,9 +1,12 @@
+import { NextResponse } from 'next/server';
+import { get } from '@vercel/edge-config';
+
 const containerVideos = document.querySelector(".videos__container");
 
 
 async function buscarEMostrarVideos(){
     try{
-        const busca = await fetch("http://localhost:3000/videos");
+        const busca = await fetch(`${get}`);
         const videos = await busca.json();
 
             videos.forEach((video)=> {
